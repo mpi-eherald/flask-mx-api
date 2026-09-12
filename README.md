@@ -1,0 +1,1 @@
+using flask to create a read-only view of MaintainX Asset Status for Magnum Piering
