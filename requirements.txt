@@ -1,4 +1,5 @@
 flask
+flask_apscheduler
 dotenv
 httpx
 gunicorn
