@@ -19,7 +19,26 @@
 
       {% for asset in assets %}
 
-        {% if asset.downtimeType == "PLANNED" %}
+        {% if asset.status == "DECOMISSIONED" %}
+
+          <div data-id="{{asset.id}}"  class="bg-linear-to-bl from-gray-700 to-gray-300 p-2 rounded-md shadow-xl/30 shadow-gray-600 flex flex-col justify-between">
+            <div class="text-white flex justify-between items-start">
+              <div class="text-2xl">{{ asset.name }}</div>
+              <div class="text-stone-100 rounded-xs pt-0.5 p-1 bg-gray-400 flex-none shadow-xl/20">{{ asset.startedAt }}</div>
+            </div>
+            <div class="flex flex-row justify-between items-end">
+              <div class="flex flex-col">
+                <span class="text-stone-200 text-xs mt-2">Status</span>
+                <span class="text-white"><strong class="text-gray-600 text-shadow-2xs text-shadow-gray-300">{{ asset.status }}</strong></span>
+              </div>
+              <div class="flex flex-col items-end">
+                <span class="text-xs mt-2 text-white">{{ asset.downtimeType }}</span>
+                <span class="text-white">{{ asset.description }}</span>
+              </div>
+            </div>
+          </div>
+
+        {% elif asset.downtimeType == "PLANNED" %}
 
           <div data-id="{{asset.id}}"  class="bg-linear-to-bl from-yellow-700 to-amber-300 p-2 rounded-md shadow-xl/30 shadow-yellow-600 flex flex-col justify-between">
             <div class="text-white flex justify-between items-start">
@@ -57,24 +76,7 @@
             </div>
           </div>
 
-        {% elif asset.status == "DECOMISSIONED" %}
 
-          <div data-id="{{asset.id}}"  class="bg-linear-to-bl from-gray-700 to-gray-300 p-2 rounded-md shadow-xl/30 shadow-gray-600 flex flex-col justify-between">
-            <div class="text-white flex justify-between items-start">
-              <div class="text-2xl">{{ asset.name }}</div>
-              <div class="text-stone-100 rounded-xs pt-0.5 p-1 bg-gray-400 flex-none shadow-xl/20">{{ asset.startedAt }}</div>
-            </div>
-            <div class="flex flex-row justify-between items-end">
-              <div class="flex flex-col">
-                <span class="text-stone-200 text-xs mt-2">Status</span>
-                <span class="text-white"><strong class="text-gray-600 text-shadow-2xs text-shadow-gray-300">{{ asset.status }}</strong></span>
-              </div>
-              <div class="flex flex-col items-end">
-                <span class="text-xs mt-2 text-white">{{ asset.downtimeType }}</span>
-                <span class="text-white">{{ asset.description }}</span>
-              </div>
-            </div>
-          </div>
 
         {% else %}
 
