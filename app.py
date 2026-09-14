@@ -47,13 +47,6 @@ def sync_asset_status():
           "description": asset["status"]["description"],
           "startedAt": dt.fromisoformat(asset["status"]["startedAt"]).date()
         })
-      continue
-
-    results.append({
-      "id": asset["id"],
-      "name": asset["name"],
-      "status": asset["status"]["status"]
-    })
 
   assetStatus = sorted(results, key=lambda x: x["status"])
   print(f"Success: synced {len(assets)} assets")

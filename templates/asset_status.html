@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>Document</title>
+  <title>MPi - Asset Status</title>
 </head>
 <body class="bg-gray-800">
   <h1 class="text-3xl font-bold ml-3 mt-5 text-taupe-100">
@@ -13,18 +13,18 @@
     <h2 class="text-gray-300 ml-5">
       Asset status
     </h2>
-  <div class="bg-linear-to-tr from-blue-500 to-indigo-600 m-2 p-5 rounded-xl">
+  <div class="bg-linear-to-tr from-blue-500 to-indigo-600 m-2 p-3 rounded-xl">
 
-    <div class="grid grid-cols-1 gap-2 sm:grid-cols-4">
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-3">
 
       {% for asset in assets %}
 
         {% if asset.status == "OFFLINE" %}
 
-          <div data-id="{{asset.id}}"  class="bg-linear-to-bl from-red-600 to-orange-300 p-2 rounded-lg shadow-xl/30 shadow-red-600 flex flex-col justify-between">
-            <div class="text-white flex justify-between">
-              <span class="text-2xl">{{ asset.name }}</span>
-              <span class="text-stone-100 rounded-md pt-0.5 p-1 bg-orange-400 flex-none shadow-xl/20">{{ asset.startedAt }}</span>
+          <div data-id="{{asset.id}}"  class="bg-linear-to-bl from-red-600 to-orange-300 p-2 rounded-md shadow-xl/30 shadow-red-600 flex flex-col justify-between">
+            <div class="text-white flex justify-between items-start">
+              <div class="text-2xl">{{ asset.name }}</div>
+              <div class="text-stone-100 rounded-xs pt-0.5 p-1 bg-orange-400 flex-none shadow-xl/20">{{ asset.startedAt }}</div>
             </div>
             <div class="flex flex-row justify-between items-end">
               <div class="flex flex-col">
