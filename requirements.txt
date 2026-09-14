@@ -3,3 +3,4 @@ flask_apscheduler
 dotenv
 httpx
 gunicorn
+benedict
